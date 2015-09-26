@@ -20,7 +20,6 @@ emailRegex = re.compile(r'''(
     (\.[a-zA-Z]{2,4})                       # dot-something‰
     )''', re.VERBOSE)
 
-
 text = str(pyperclip.paste())
 match = []
 
@@ -33,11 +32,10 @@ for groups in phoneRegex.findall(text):
 for groups in emailRegex.findall(text):
     match.append(groups[0])
 
-if len(match) > 0 :
+if len(match) > 0:
     desiredText = '\n'.join(match)
     pyperclip.copy(desiredText)
     print('copied to clipboard')
     print(desiredText)
 else:
     print('No Phone numbers or Email address found')
-
